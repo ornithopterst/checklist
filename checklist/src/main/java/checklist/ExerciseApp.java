@@ -1,7 +1,10 @@
 package checklist;
 
+import java.awt.EventQueue;
+
 import org.apache.commons.dbcp2.BasicDataSource;
 
+import checklist.gui.MainScreen;
 import checklist.model.ExerciseDAO;
 import checklist.model.jdbc.JDBCExerciseDAO;
 
@@ -12,7 +15,16 @@ public class ExerciseApp {
 	public static void main(String[] args) {
 //		ExerciseApp exerciseApp = new ExerciseApp();
 		
-		// TODO The rest of the application :-)
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					MainScreen window = new MainScreen();
+					window.frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
 		
 		System.out.println("hi");
 	}
